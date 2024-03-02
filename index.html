@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta
+            name="description"
+            content="ReCaptcha, un juego para comprobar que no eres un robot"
+        />
+        <meta
+            name="keywords"
+            content="ReCaptcha, robot, juego, llaves, llave, captcha, limbo, geometry dash, gd, robtop"
+        />
+        <link rel="shortcut icon" href="/favicon.jpg" type="image/x-icon" />
+        <title>ReCaptcha</title>
+        <link rel="stylesheet" href="style.css" />
+    </head>
+    <body>
+        <div id="wrapper" class="showKeys">
+            <div id="check">
+                <div id="checkbox">
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        id="svg"
+                    >
+                        <path stroke="none" d="M0 0h24v24H0z" />
+                        <path d="M18 6 6 18M6 6l12 12" />
+                    </svg>
+                </div>
+                <span id="spanError">Otra vez no... ¿Eres un robot?</span>
+                <img
+                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/RecaptchaLogo.svg/800px-RecaptchaLogo.svg.png"
+                />
+            </div>
+            <section id="keysSection">
+                <article class="keysInfo">
+                    <header>
+                        <p>Estate atento</p>
+                        <h2>La llave correcta</h2>
+                        <p>Y siguela</p>
+                    </header>
+
+                    <main class="mainKeys">
+                        <img id="key1" class="key" src="/key.webp" alt="Llave" />
+                        <img id="key2" class="key" src="/key.webp" alt="Llave" />
+                        <img id="key3" class="key" src="/key.webp" alt="Llave" />
+                        <img id="key4" class="key" src="/key.webp" alt="Llave" />
+                        <img id="key5" class="key" src="/key.webp" alt="Llave" />
+                        <img id="key6" class="key" src="/key.webp" alt="Llave" />
+                        <img id="key7" class="key" src="/key.webp" alt="Llave" />
+                        <img id="key8" class="key" src="/key.webp" alt="Llave" />
+                    </main>
+                </article>
+                <div class="keysBtnSection">
+                    <button>Saltar</button>
+                </div>
+            </section>
+        </div>
+    </body>
+    <script type="module" src="main.js"></script>
+</html>

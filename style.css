@@ -1,0 +1,604 @@
+:root {
+    --bg: #cfebf1;
+    --error: #ff0033;
+    --google-blue: #0878ab;
+
+    --mainContainerWidth: 100%;
+    --mainContainerHeight: 100%;
+    --separationX: calc(var(--mainContainerWidth) + 4rem);
+    --separationY: calc(var(--mainContainerHeight) + 1rem);
+
+    --key1X: calc(var(--separationX) * 0);
+    --key1Y: calc(var(--separationY) * 0);
+    --key2X: calc(var(--separationX) * 1);
+    --key2Y: calc(var(--separationY) * 0);
+    --key3X: calc(var(--separationX) * 2);
+    --key3Y: calc(var(--separationY) * 0);
+    --key4X: calc(var(--separationX) * 3);
+    --key4Y: calc(var(--separationY) * 0);
+    --key5X: calc(var(--separationX) * 0);
+    --key5Y: calc(var(--separationY) * 1);
+    --key6X: calc(var(--separationX) * 1);
+    --key6Y: calc(var(--separationY) * 1);
+    --key7X: calc(var(--separationX) * 2);
+    --key7Y: calc(var(--separationY) * 1);
+    --key8X: calc(var(--separationX) * 3);
+    --key8Y: calc(var(--separationY) * 1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    background-color: var(--bg);
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu,
+        Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+div#wrapper {
+    transition: all 750ms;
+}
+
+.showKeys {
+    transform: translateY(10rem);
+}
+
+div#check {
+    width: 24rem;
+    height: 5rem;
+    background-color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 1rem;
+    border-radius: 0.25rem;
+    border: 2px solid #ccc;
+    margin-inline: auto;
+}
+
+div#checkbox {
+    width: 2rem;
+    height: 2rem;
+    border-radius: 0.25rem;
+    border: 2px solid #ccc;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--error);
+    cursor: pointer;
+    position: relative;
+}
+
+div#checkbox.loading {
+    border: none;
+}
+
+div#checkbox.loading::before {
+    opacity: 1;
+}
+
+div#checkbox::before {
+    opacity: 0;
+    content: "";
+    width: 1.5rem;
+    height: 1.5rem;
+    border: 4px solid var(--google-blue);
+    border-left: 4px solid white;
+    position: absolute;
+    border-radius: 100rem;
+    animation: spin 1s infinite linear;
+    transition: opacity 0.3s;
+}
+
+span#spanError {
+    color: var(--error);
+    font-weight: 600;
+    margin-left: -1.2rem;
+}
+
+span#spanError,
+svg#svg {
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+img {
+    width: 4rem;
+}
+
+span#spanError.active,
+svg#svg.active {
+    opacity: 1;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+section#keysSection {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 0.25rem;
+    border: 2px solid #ccc;
+    margin-top: 1rem;
+    width: 35rem;
+    height: 20rem;
+    background-color: white;
+    transition: all 750ms;
+    opacity: 0;
+}
+
+article.keysInfo {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    flex: 1;
+    border-bottom: 2px solid #ccc;
+}
+
+article.keysInfo header {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--google-blue);
+    margin: 0.25rem;
+    padding: 1rem;
+    color: white;
+    border-radius: 0.2rem;
+}
+
+div.keysBtnSection {
+    height: 4rem;
+    width: 100%;
+    display: flex;
+    justify-content: end;
+    align-items: end;
+    padding: 0.5rem;
+
+    & button {
+        padding: 0.75rem 1.25rem;
+        border: none;
+        border-radius: 0.25rem;
+        background-color: var(--google-blue);
+        color: white;
+        cursor: pointer;
+        font-weight: 600;
+        letter-spacing: 0.1rem;
+    }
+}
+
+div.keysBtnSection button:hover {
+    filter: brightness(0.75);
+}
+
+main.mainKeys {
+    height: var(--mainContainerHeight);
+    width: var(--mainContainerWidth);
+    padding: 1rem;
+    overflow: hidden;
+    position: relative;
+}
+
+main.mainKeys img {
+    position: absolute;
+    width: 5rem;
+    height: auto;
+    transition: all 750ms;
+}
+
+.moveKeys1 {
+    animation: moveKeys1 1s;
+}
+
+img#key1 {
+    transform: translate(var(--key1X), var(--key1Y));
+}
+
+img#key2 {
+    transform: translate(var(--key2X), var(--key2Y));
+}
+
+img#key3 {
+    transform: translate(var(--key3X), var(--key3Y));
+}
+
+img#key4 {
+    transform: translate(var(--key4X), var(--key4Y));
+}
+
+img#key5 {
+    transform: translate(var(--key5X), var(--key5Y));
+}
+
+img#key6 {
+    transform: translate(var(--key6X), var(--key6Y));
+}
+
+img#key7 {
+    transform: translate(var(--key7X), var(--key7Y));
+}
+
+img#key8 {
+    transform: translate(var(--key8X), var(--key8Y));
+}
+
+.glowing {
+    filter: drop-shadow(0 0 1rem blue) saturate(1.25);
+}
+
+@keyframes moveKeys1step1 {
+    0% {
+        transform: translate(var(--key1X), var(--key1Y));
+    }
+    100% {
+        transform: translate(var(--key2X), var(--key2Y));
+    }
+}
+
+@keyframes moveKeys2step1 {
+    0% {
+        transform: translate(var(--key2X), var(--key2Y));
+    }
+    100% {
+        transform: translate(var(--key6X), var(--key6Y));
+    }
+}
+
+@keyframes moveKeys6step1 {
+    0% {
+        transform: translate(var(--key6X), var(--key6Y));
+    }
+    100% {
+        transform: translate(var(--key5X), var(--key5Y));
+    }
+}
+
+@keyframes moveKeys5step1 {
+    0% {
+        transform: translate(var(--key5X), var(--key5Y));
+    }
+    100% {
+        transform: translate(var(--key1X), var(--key1Y));
+    }
+}
+
+@keyframes moveKeys3step1 {
+    0% {
+        transform: translate(var(--key3X), var(--key3Y));
+    }
+    100% {
+        transform: translate(var(--key4X), var(--key4Y));
+    }
+}
+
+@keyframes moveKeys4step1 {
+    0% {
+        transform: translate(var(--key4X), var(--key4Y));
+    }
+    100% {
+        transform: translate(var(--key8X), var(--key8Y));
+    }
+}
+
+@keyframes moveKeys8step1 {
+    0% {
+        transform: translate(var(--key8X), var(--key8Y));
+    }
+    100% {
+        transform: translate(var(--key7X), var(--key7Y));
+    }
+}
+
+@keyframes moveKeys7step1 {
+    0% {
+        transform: translate(var(--key7X), var(--key7Y));
+    }
+    100% {
+        transform: translate(var(--key3X), var(--key3Y));
+    }
+}
+
+@keyframes moveKeys1step2 {
+    0% {
+        transform: translate(var(--key1X), var(--key1Y));
+    }
+    100% {
+        transform: translate(var(--key8X), var(--key8Y));
+    }
+}
+
+@keyframes moveKeys2step2 {
+    0% {
+        transform: translate(var(--key2X), var(--key2Y));
+    }
+    100% {
+        transform: translate(var(--key7X), var(--key7Y));
+    }
+}
+
+@keyframes moveKeys3step2 {
+    0% {
+        transform: translate(var(--key3X), var(--key3Y));
+    }
+    100% {
+        transform: translate(var(--key6X), var(--key6Y));
+    }
+}
+
+@keyframes moveKeys4step2 {
+    0% {
+        transform: translate(var(--key4X), var(--key4Y));
+    }
+    100% {
+        transform: translate(var(--key5X), var(--key5Y));
+    }
+}
+
+@keyframes moveKeys5step2 {
+    0% {
+        transform: translate(var(--key5X), var(--key5Y));
+    }
+    100% {
+        transform: translate(var(--key4X), var(--key4Y));
+    }
+}
+
+@keyframes moveKeys6step2 {
+    0% {
+        transform: translate(var(--key6X), var(--key6Y));
+    }
+    100% {
+        transform: translate(var(--key3X), var(--key3Y));
+    }
+}
+
+@keyframes moveKeys7step2 {
+    0% {
+        transform: translate(var(--key7X), var(--key7Y));
+    }
+    100% {
+        transform: translate(var(--key2X), var(--key2Y));
+    }
+}
+
+@keyframes moveKeys8step2 {
+    0% {
+        transform: translate(var(--key8X), var(--key8Y));
+    }
+    100% {
+        transform: translate(var(--key1X), var(--key1Y));
+    }
+}
+
+@keyframes moveKeys1step3 {
+    0% {
+        transform: translate(var(--key1X), var(--key1Y));
+    }
+    100% {
+        transform: translate(var(--key4X), var(--key4Y));
+    }
+}
+
+@keyframes moveKeys2step3 {
+    0% {
+        transform: translate(var(--key2X), var(--key2Y));
+    }
+    100% {
+        transform: translate(var(--key3X), var(--key3Y));
+    }
+}
+
+@keyframes moveKeys3step3 {
+    0% {
+        transform: translate(var(--key3X), var(--key3Y));
+    }
+    100% {
+        transform: translate(var(--key2X), var(--key2Y));
+    }
+}
+
+@keyframes moveKeys4step3 {
+    0% {
+        transform: translate(var(--key4X), var(--key4Y));
+    }
+    100% {
+        transform: translate(var(--key1X), var(--key1Y));
+    }
+}
+
+@keyframes moveKeys5step3 {
+    0% {
+        transform: translate(var(--key5X), var(--key5Y));
+    }
+    100% {
+        transform: translate(var(--key8X), var(--key8Y));
+    }
+}
+
+@keyframes moveKeys6step3 {
+    0% {
+        transform: translate(var(--key6X), var(--key6Y));
+    }
+    100% {
+        transform: translate(var(--key7X), var(--key7Y));
+    }
+}
+
+@keyframes moveKeys7step3 {
+    0% {
+        transform: translate(var(--key7X), var(--key7Y));
+    }
+    100% {
+        transform: translate(var(--key6X), var(--key6Y));
+    }
+}
+
+@keyframes moveKeys8step3 {
+    0% {
+        transform: translate(var(--key8X), var(--key8Y));
+    }
+    100% {
+        transform: translate(var(--key5X), var(--key5Y));
+    }
+}
+
+@keyframes moveKeys1step4 {
+    0% {
+        transform: translate(var(--key1X), var(--key1Y));
+    }
+    100% {
+        transform: translate(var(--key5X), var(--key5Y));
+    }
+}
+
+@keyframes moveKeys2step4 {
+    0% {
+        transform: translate(var(--key2X), var(--key2Y));
+    }
+    100% {
+        transform: translate(var(--key1X), var(--key1Y));
+    }
+}
+
+@keyframes moveKeys3step4 {
+    0% {
+        transform: translate(var(--key3X), var(--key3Y));
+    }
+    100% {
+        transform: translate(var(--key7X), var(--key7Y));
+    }
+}
+
+@keyframes moveKeys4step4 {
+    0% {
+        transform: translate(var(--key4X), var(--key4Y));
+    }
+    100% {
+        transform: translate(var(--key3X), var(--key3Y));
+    }
+}
+
+@keyframes moveKeys5step4 {
+    0% {
+        transform: translate(var(--key5X), var(--key5Y));
+    }
+    100% {
+        transform: translate(var(--key6X), var(--key6Y));
+    }
+}
+
+@keyframes moveKeys6step4 {
+    0% {
+        transform: translate(var(--key6X), var(--key6Y));
+    }
+    100% {
+        transform: translate(var(--key2X), var(--key2Y));
+    }
+}
+
+@keyframes moveKeys7step4 {
+    0% {
+        transform: translate(var(--key7X), var(--key7Y));
+    }
+    100% {
+        transform: translate(var(--key8X), var(--key8Y));
+    }
+}
+
+@keyframes moveKeys8step4 {
+    0% {
+        transform: translate(var(--key8X), var(--key8Y));
+    }
+    100% {
+        transform: translate(var(--key4X), var(--key4Y));
+    }
+}
+
+@keyframes moveKeys1step5 {
+    0% {
+        transform: translate(var(--key1X), var(--key1Y));
+    }
+    100% {
+        transform: translate(var(--key5X), var(--key5Y));
+    }
+}
+
+@keyframes moveKeys2step5 {
+    0% {
+        transform: translate(var(--key2X), var(--key2Y));
+    }
+    100% {
+        transform: translate(var(--key1X), var(--key1Y));
+    }
+}
+
+@keyframes moveKeys3step5 {
+    0% {
+        transform: translate(var(--key3X), var(--key3Y));
+    }
+    100% {
+        transform: translate(var(--key2X), var(--key2Y));
+    }
+}
+
+@keyframes moveKeys4step5 {
+    0% {
+        transform: translate(var(--key4X), var(--key4Y));
+    }
+    100% {
+        transform: translate(var(--key3X), var(--key3Y));
+    }
+}
+
+@keyframes moveKeys5step5 {
+    0% {
+        transform: translate(var(--key5X), var(--key5Y));
+    }
+    100% {
+        transform: translate(var(--key6X), var(--key6Y));
+    }
+}
+
+@keyframes moveKeys6step5 {
+    0% {
+        transform: translate(var(--key6X), var(--key6Y));
+    }
+    100% {
+        transform: translate(var(--key7X), var(--key7Y));
+    }
+}
+
+@keyframes moveKeys7step5 {
+    0% {
+        transform: translate(var(--key7X), var(--key7Y));
+    }
+    100% {
+        transform: translate(var(--key8X), var(--key8Y));
+    }
+}
+
+@keyframes moveKeys8step5 {
+    0% {
+        transform: translate(var(--key8X), var(--key8Y));
+    }
+    100% {
+        transform: translate(var(--key4X), var(--key4Y));
+    }
+}
