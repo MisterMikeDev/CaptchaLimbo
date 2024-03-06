@@ -2,7 +2,7 @@
 
 ### <img src="https://github.com/MisterMikeDev.png" height="200px" style="border-radius: 9999px" />
 
-## [Calculadora De Bases Numericas](https://github.com/MisterMikeDev/CaptchaLimbo)
+## [Captcha Limbo](https://github.com/MisterMikeDev/CaptchaLimbo)
 
 </div>
 
